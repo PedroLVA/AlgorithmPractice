@@ -20,28 +20,23 @@ public class HackerRank {
         int maxA = Collections.max(a);
         int minB = Collections.min(b);
         HashSet<Integer> numsA = new HashSet<Integer>();
-        HashSet<Integer> numsB = new HashSet<Integer>();
         int count = 0;
-        for(int i=maxA; i <= minB; i++){
 
+        for (int i = maxA; i <= minB; i++) {
             int finalI = i;
-            if(a.stream().allMatch(num -> finalI % num == 0)){
+            if (a.stream().allMatch(num -> finalI % num == 0)) {
                 numsA.add(finalI);
             }
+        }
 
-        }
-        for(int i = 1; i <= minB; i++){
-           if(minB % i == 0){
-               numsB.add(i);
-           }
-        }
         for(int num : numsA){
-            if(numsB.contains(num)){
-               count++;
+            if(b.stream().allMatch(bNum -> bNum % num == 0)){ // Must divide all b[]
+                count++;
             }
         }
         System.out.println(numsA);
-        System.out.println(numsB);
+
+        System.out.println();
         return count;
 
 
