@@ -62,8 +62,32 @@ public class HackerRank {
                 countLeast++;
             }
         }
-        List<Integer> answer = List.of(countMost, countLeast);
-        return answer;
+        return List.of(countMost, countLeast);
 
     }
+    public static int birthday(List<Integer> s, int d, int m) {
+        int sum = 0;
+        int numPossibilities = 0;
+
+        for(int i = 0; i < s.size() - (m - 1); i++){
+
+            for(int j = i; j <= m - 1 + i; j++){
+
+                sum += s.get(j);
+            }
+
+            if(sum == d){
+                numPossibilities++;
+                sum = 0;
+            }
+            else{
+                sum = 0;
+            }
+
+        }
+        return numPossibilities;
+
+
+    }
+
 }
