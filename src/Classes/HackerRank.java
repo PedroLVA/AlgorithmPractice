@@ -66,25 +66,36 @@ public class HackerRank {
 
     }
     public static int birthday(List<Integer> s, int d, int m) {
-        int sum = 0;
-        int numPossibilities = 0;
-
-        for(int i = 0; i < s.size() - (m - 1); i++){
-            for(int j = i; j < m + i; j++){
-                sum += s.get(j);
-            }
-            if(sum == d){
-                numPossibilities++;
-                sum = 0;
-            }
-            else{
-                sum = 0;
-            }
-
+        // Edge case: if the chocolate bar is smaller than the birth month
+        if (s.size() < m) {
+            return 0;
         }
+
+        int numPossibilities = 0;
+        int currentSum = 0;
+
+        // Calculate sum of first window of size m
+        for (int i = 0; i < m; i++) {
+            currentSum += s.get(i);
+        }
+
+        // Check if first window is valid
+        if (currentSum == d) {
+            numPossibilities++;
+        }
+
+        // Slide the window through the rest of the array
+        for (int i = m; i < s.size(); i++) {
+            // Add the new element and remove the first element of previous window
+            currentSum = currentSum + s.get(i) - s.get(i - m);
+
+            // Check if current window sum equals d
+            if (currentSum == d) {
+                numPossibilities++;
+            }
+        }
+
         return numPossibilities;
-
-
     }
 
 }
