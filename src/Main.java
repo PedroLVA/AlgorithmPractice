@@ -4,10 +4,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        List<Integer> a = List.of(2);
-        List<Integer> b = List.of(12, 20, 30);
 
-        System.out.println(HackerRank.getTotalX(a,b));
+        List<Integer> a = List.of(2);
+        List<Integer> b = List.of(2,2,1,3,2);
+
+
+        System.out.println( HackerRank.birthday(b, 4, 2));
     }
 }

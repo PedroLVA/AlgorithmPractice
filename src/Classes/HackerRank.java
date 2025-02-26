@@ -70,12 +70,9 @@ public class HackerRank {
         int numPossibilities = 0;
 
         for(int i = 0; i < s.size() - (m - 1); i++){
-
-            for(int j = i; j <= m - 1 + i; j++){
-
+            for(int j = i; j < m + i; j++){
                 sum += s.get(j);
             }
-
             if(sum == d){
                 numPossibilities++;
                 sum = 0;
