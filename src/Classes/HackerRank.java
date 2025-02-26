@@ -46,4 +46,24 @@ public class HackerRank {
 
 
     }
+    public static List<Integer> breakingRecords(List<Integer> scores) {
+        int highestScore = scores.get(0);
+        int lowestScore = scores.get(0);
+        int countMost = 0;
+        int countLeast = 0;
+
+        for(int i = 1; i < scores.size(); i++){
+            if(scores.get(i) > highestScore){
+                highestScore = scores.get(i);
+                countMost++;
+            }
+            if(scores.get(i) < lowestScore){
+                lowestScore = scores.get(i);
+                countLeast++;
+            }
+        }
+        List<Integer> answer = List.of(countMost, countLeast);
+        return answer;
+
+    }
 }
