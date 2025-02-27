@@ -74,22 +74,17 @@ public class HackerRank {
         int numPossibilities = 0;
         int currentSum = 0;
 
-        // Calculate sum of first window of size m
         for (int i = 0; i < m; i++) {
             currentSum += s.get(i);
         }
 
-        // Check if first window is valid
         if (currentSum == d) {
             numPossibilities++;
         }
 
-        // Slide the window through the rest of the array
         for (int i = m; i < s.size(); i++) {
-            // Add the new element and remove the first element of previous window
             currentSum = currentSum + s.get(i) - s.get(i - m);
 
-            // Check if current window sum equals d
             if (currentSum == d) {
                 numPossibilities++;
             }
@@ -97,5 +92,18 @@ public class HackerRank {
 
         return numPossibilities;
     }
+    public static int divisibleSumPairs(int n, int k, List<Integer> ar) {
+        int numOfPairs = 0;
+        for(int i = 0; i < ar.size(); i++){
+            for(int j = i + 1; j < ar.size(); j++){
+                if((ar.get(i) + ar.get(j)) % k == 0){
+                    numOfPairs++;
+                }
+            }
+        }
+        return numOfPairs;
+
+    }
+
 
 }
