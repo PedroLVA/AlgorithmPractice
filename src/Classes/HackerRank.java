@@ -1,8 +1,6 @@
 package Classes;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class HackerRank {
 
@@ -104,6 +102,32 @@ public class HackerRank {
         return numOfPairs;
 
     }
+    public static int migratoryBirds(List<Integer> arr) {
+
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
+        for(int id : arr){
+            if(hashmap.containsKey(id)){
+                hashmap.put(id, hashmap.get(id) + 1);
+            }
+            else {
+                hashmap.put(id, 1);
+            }
+        }
+        int maxValue = Integer.MIN_VALUE;
+        int lowestKey = Integer.MIN_VALUE;
+        for (Map.Entry<Integer, Integer> entry : hashmap.entrySet()) {
+            if(entry.getValue() > maxValue){
+                maxValue = entry.getValue();
+                lowestKey = entry.getKey();
+            }
+            if (entry.getValue() == maxValue && entry.getKey() < lowestKey) {
+                lowestKey = entry.getKey();
+            }
+        }
+        return lowestKey;
+
+    }
+
+    }
 
 
-}
