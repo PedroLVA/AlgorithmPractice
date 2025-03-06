@@ -144,6 +144,19 @@ public class HackerRank {
         return day + ".09." + year;
 
     }
+    public static void bonAppetit(List<Integer> bill, int k, int b) {
+
+        int sumOfAllItemsInBill = 0;
+        for(int num : bill){
+            sumOfAllItemsInBill += num;
+        }
+
+        int annaShouldPay = (sumOfAllItemsInBill - bill.get(k))/2;
+
+        System.out.println(annaShouldPay == b ? "Bon Appetit" : (b - annaShouldPay));
+
+
+    }
 
 
 }
