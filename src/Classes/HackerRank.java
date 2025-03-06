@@ -127,7 +127,25 @@ public class HackerRank {
         return lowestKey;
 
     }
+    public static String dayOfProgrammer(int year) {
+        int day;
+
+        if (year == 1918) {
+
+            day = 26;
+        } else if (year < 1918) {
+
+            day = (year % 4 == 0) ? 12 : 13;
+        } else {
+
+            day = (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) ? 12 : 13;
+        }
+
+        return day + ".09." + year;
 
     }
+
+
+}
 
 
