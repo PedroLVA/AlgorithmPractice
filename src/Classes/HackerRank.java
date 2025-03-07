@@ -157,6 +157,22 @@ public class HackerRank {
 
 
     }
+    public static int sockMerchant(int n, List<Integer> ar) {
+        // Write your code here
+        HashMap<Integer, Integer> pairs = new HashMap<>();
+        int countPairs = 0;
+        for (int i : ar) {
+            if (pairs.containsKey(i)) {
+                pairs.put(i, pairs.get(i) + 1);
+                if (pairs.get(i) % 2 == 0) {
+                    countPairs++;
+                }
+            } else {
+                pairs.put(i, 1);
+            }
+        }
+        return countPairs;
+    }
 
 
 }
