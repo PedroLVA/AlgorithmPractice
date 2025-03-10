@@ -192,12 +192,7 @@ public class HackerRank {
 
         for(int i = 0; i < path.length(); i++){
             char currentChar = path.charAt(i);
-            if(currentChar == 'D'){
-                altitude--;
-            }
-            else{
-                altitude++;
-            }
+            altitude += (currentChar == 'D') ? -1 : +1;
             if(beforeAltitude == 0 && altitude < 0){
                 numberOfValleys++;
             }
