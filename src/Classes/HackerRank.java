@@ -204,19 +204,17 @@ public class HackerRank {
 
     }
     public static int getMoneySpent(int[] keyboards, int[] drives, int b) {
-        int higestValue = Integer.MIN_VALUE;
+        int highestValue = -1;
 
         for(int i = 0; i < keyboards.length; i++){
             for(int j = 0; j < drives.length; j++){
-                if(keyboards[i] + drives[j] > higestValue && keyboards[i] + drives[j] <= b){
-                    higestValue = keyboards[i] + drives[j];
+                if(keyboards[i] + drives[j] > highestValue && keyboards[i] + drives[j] <= b){
+                    highestValue = keyboards[i] + drives[j];
                 }
             }
         }
-        if(higestValue == Integer.MIN_VALUE){
-            return -1;
-        }
-        return higestValue;
+
+        return highestValue;
     }
 
 
