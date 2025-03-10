@@ -191,8 +191,8 @@ public class HackerRank {
         int altitude = 0;
 
         for(int i = 0; i < path.length(); i++){
-            char currentChar = path.charAt(i);
-            altitude += (currentChar == 'D') ? -1 : +1;
+
+            altitude += (path.charAt(i) == 'D') ? -1 : +1;
             if(beforeAltitude == 0 && altitude < 0){
                 numberOfValleys++;
             }
@@ -202,6 +202,21 @@ public class HackerRank {
 
 
 
+    }
+    public static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+        int higestValue = Integer.MIN_VALUE;
+
+        for(int i = 0; i < keyboards.length; i++){
+            for(int j = 0; j < drives.length; j++){
+                if(keyboards[i] + drives[j] > higestValue && keyboards[i] + drives[j] <= b){
+                    higestValue = keyboards[i] + drives[j];
+                }
+            }
+        }
+        if(higestValue == Integer.MIN_VALUE){
+            return -1;
+        }
+        return higestValue;
     }
 
 
