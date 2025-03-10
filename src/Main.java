@@ -9,6 +9,7 @@ public class Main {
         List<Integer> b = List.of(2,2,1,3,2);
 
 
-        System.out.println( HackerRank.birthday(b, 4, 2));
+        System.out.println(5/2);
+
     }
 }

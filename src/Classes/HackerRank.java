@@ -174,6 +174,41 @@ public class HackerRank {
         return countPairs;
     }
 
+    public static int pageCount(int n, int p) {
+        // Calculate page turns from front
+        int fromFront = p / 2;
+
+
+        int fromBack = n / 2 - p / 2;
+
+      
+        return Math.min(fromFront, fromBack);
+    }
+    public static int countingValleys(int steps, String path) {
+        // Write your code here
+        int numberOfValleys = 0;
+        int beforeAltitude = 0;
+        int altitude = 0;
+
+        for(int i = 0; i < path.length(); i++){
+            char currentChar = path.charAt(i);
+            if(currentChar == 'D'){
+                altitude--;
+            }
+            else{
+                altitude++;
+            }
+            if(beforeAltitude == 0 && altitude < 0){
+                numberOfValleys++;
+            }
+            beforeAltitude = altitude;
+        }
+        return numberOfValleys;
+
+
+
+    }
+
 
 }
 
