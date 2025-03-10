@@ -208,6 +208,9 @@ public class HackerRank {
 
         for(int i = 0; i < keyboards.length; i++){
             for(int j = 0; j < drives.length; j++){
+                if(keyboards[i] + drives[j] == b) {
+                    return b;
+                }
                 if(keyboards[i] + drives[j] > highestValue && keyboards[i] + drives[j] <= b){
                     highestValue = keyboards[i] + drives[j];
                 }
