@@ -222,6 +222,18 @@ public class HackerRank {
 
         return highestValue;
     }
+    public static String catAndMouse(int x, int y, int z) {
+        int catADistance = Math.abs(z - x);
+        int catBDistance = Math.abs(z - y);
+
+        if (catADistance < catBDistance) {
+            return "Cat A";
+        } else if (catADistance > catBDistance) {
+            return "Cat B";
+        } else {
+            return "Mouse C";
+        }
+    }
 
 
 }
