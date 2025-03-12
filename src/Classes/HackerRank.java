@@ -234,6 +234,46 @@ public class HackerRank {
             return "Mouse C";
         }
     }
+    public static int pickingNumbers(List<Integer> a) {
+        int biggestArray = Integer.MIN_VALUE;
+
+        //Hashmao that has id and size of array
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        int biggestSetSize = Integer.MIN_VALUE;
+
+        for(int i = 0; i < a.size(); i++ ){
+            if(hm.containsKey(a.get(i))){
+                hm.put(a.get(i), hm.get(i) + 1);
+            }
+            else{
+                hm.put(a.get(i), 1);
+            }
+
+        }
+
+        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+
+            Integer currentKey = entry.getKey();
+            Integer currentValue = entry.getValue();
+
+            for (Map.Entry<Integer, Integer> otherEntry : hm.entrySet()) {
+
+                if (currentKey.equals(otherEntry.getKey())) continue;
+
+
+                if (Math.abs(currentKey - otherEntry.getKey()) == 1) {
+
+                    int combined = currentValue + otherEntry.getValue();
+                    if(combined > biggestSetSize){
+                        biggestSetSize = combined;
+                    }
+                    // ...
+                }
+            }
+        }
+        return biggestSetSize;
+    }
+
 
 
 }
