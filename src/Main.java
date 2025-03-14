@@ -9,7 +9,9 @@ public class Main {
         List<Integer> b = List.of(2,2,1,3,2);
 
 
-        System.out.println(5/2);
+        for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
+            System.out.println(alphabet);
+        }
 
     }
 }

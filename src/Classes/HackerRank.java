@@ -286,6 +286,27 @@ public class HackerRank {
 
 
     }
+    public static int designerPdfViewer(List<Integer> h, String word) {
+        // Write your code here
+        //get the highest letter of the word
+        //How to get the correct letter value inteligently? Dunno so I'll use a hashmap
+
+        int wordLength = word.length();
+        int heighestLetter = 1;
+
+        for(int i = 0; i < wordLength; i++){
+            int letterHeight = h.get(word.charAt(i) - 'a');
+
+            heighestLetter = Math.max(letterHeight, heighestLetter);
+
+        }
+        return heighestLetter * wordLength;
+
+
+
+
+    }
+
 
 
 
