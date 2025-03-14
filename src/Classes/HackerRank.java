@@ -273,6 +273,20 @@ public class HackerRank {
         }
         return biggestSetSize;
     }
+    public static int hurdleRace(int k, List<Integer> height) {
+
+        int maxHeight = 0;
+        int result = 0;
+        for(int h : height){
+            maxHeight = Math.max(h, maxHeight);
+        }
+
+        result = (maxHeight <= k) ?  0 : maxHeight-k;
+        return result;
+
+
+    }
+
 
 
 
