@@ -1,4 +1,4 @@
-package Classes;
+package Problems;
 
 import java.util.*;
 
@@ -173,7 +173,6 @@ public class HackerRank {
         }
         return countPairs;
     }
-
     public static int pageCount(int n, int p) {
         // Calculate page turns from front
         int fromFront = p / 2;

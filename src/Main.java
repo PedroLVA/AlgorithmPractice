@@ -1,5 +1,3 @@
-import Classes.HackerRank;
-
 import java.util.List;
 
 public class Main {
@@ -9,7 +7,7 @@ public class Main {
         List<Integer> b = List.of(2,2,1,3,2);
 
 
-        for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
+        for (char alphabet = 'a'; alphabet <= 'z'; alphabet++) {
             System.out.println(alphabet);
         }
 
