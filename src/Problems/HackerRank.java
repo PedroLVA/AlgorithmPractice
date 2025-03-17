@@ -315,7 +315,7 @@ public class HackerRank {
         }
 
         for(int i = 0; i < n; i++){
-            if( i == 0 || i % 2 == 0){
+            if( i % 2 == 0){
                 treeHeight *= 2 ;
             }
             else{
