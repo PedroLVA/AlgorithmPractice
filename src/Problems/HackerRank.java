@@ -305,11 +305,30 @@ public class HackerRank {
 
 
     }
+    public static int utopianTree(int n) {
+        // Write your code here
+        //spring (double) - summer (adds 1)
+        int treeHeight = 1;
 
+        if(n == 0){
+            return 1;
+        }
 
+        for(int i = 0; i < n; i++){
+            if( i == 0 || i % 2 == 0){
+                treeHeight *= 2 ;
+            }
+            else{
+                treeHeight++;
+            }
+        }
+        return treeHeight;
+
+    }
 
 
 
 }
+
 
 
