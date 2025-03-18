@@ -341,6 +341,31 @@ public class HackerRank {
         }
 
     }
+    public static int beautifulDays(int i, int j, int k) {
+        int beautifulDaysCounter = 0;
+
+
+        int reversedNumber = 0;
+
+        for(int index = i; index <= j; index++){
+            StringBuilder sb = new StringBuilder();
+            sb.append(Integer.toString(index));
+            sb.reverse();
+            reversedNumber = Integer.parseInt(sb.toString());
+
+            System.out.println(reversedNumber);
+
+            if((index - reversedNumber) % k == 0){
+                beautifulDaysCounter++;
+            }
+        }
+        System.out.println(beautifulDaysCounter);
+        return beautifulDaysCounter;
+
+
+    }
+
+
 
 
 
