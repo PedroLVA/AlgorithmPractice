@@ -328,8 +328,8 @@ public class HackerRank {
     public static String angryProfessor(int k, List<Integer> a) {
         int count = 0;
 
-        for(int i = 0 ; i < a.size(); i++){
-            if(a.get(i) > 0){
+        for (Integer integer : a) {
+            if (integer > 0) {
                 count++;
             }
         }
@@ -361,6 +361,67 @@ public class HackerRank {
         }
         System.out.println(beautifulDaysCounter);
         return beautifulDaysCounter;
+
+
+    }
+    public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
+        List<Integer> listOfRanks = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
+        int presentRank = 1;
+
+        //getting the ranks
+        for(int i = 0; i < ranked.size(); i++){
+            if( i == 0){
+                listOfRanks.add(presentRank);
+                continue;
+            }
+            //if it's equal
+            if(ranked.get(i) == ranked.get(i - 1)){
+                listOfRanks.add(presentRank);
+            }
+            //if it's smaller
+
+            else if(ranked.get(i) < ranked.get(i - 1)){
+                presentRank++;
+                listOfRanks.add(presentRank);
+            }
+        }
+
+        //another for loop comparing each element, since both arrays have the matching index,
+        //we can use that
+
+        for(int i = 0; i < player.size(); i++){
+            int playerScore = player.get(i);
+
+            //inside the ranks comparing
+            for(int j = 0; j < ranked.size(); j++){
+
+                if(j == 0){
+                    if(playerScore >= ranked.get(j)){
+                        result.add(listOfRanks.get(j));
+                    }
+                }
+                else if(j == ranked.size() - 1){
+                    if (playerScore < ranked.get(j)){
+                        result.add(listOfRanks.get(j) + 1);
+                        break;
+                    }
+                }
+
+                if(playerScore == ranked.get(j)){
+                    result.add(listOfRanks.get(j));
+                }
+                else if(playerScore > ranked.get(j) && playerScore < ranked.get(j - 1)){
+                    result.add(listOfRanks.get(j));
+                }
+            }
+
+
+
+
+        }
+
+        return result;
 
 
     }
