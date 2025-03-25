@@ -426,9 +426,33 @@ public class HackerRank {
 
     }
 
+    public static int saveThePrisoner(int n, int m, int s) {
+        int position = ((s - 1) + (m - 1)) % n + 1;
+        return position;
+    }
+    public static List<Integer> circularArrayRotation(List<Integer> a, int k, List<Integer> queries) {
+        // Write your code here
+        //moves the last to the first and shifts everything to the right
+        //first we need to rotate it
+        ArrayList<Integer> answer = new ArrayList<>();
+        for(int i = 0; i < k; i++){
+            //get the last element
+            int lastElement = a.get(a.size() -1 );
+            //remove the last element
+            a.remove(a.size() -1);
+            //add the last element to the start
+            a.add(0, lastElement);
+
+            //this works
+        }
+        for(int i = 0; i < queries.size(); i++){
+            answer.add(a.get(queries.get(i)));
+        }
 
 
+        return answer;
 
+    }
 
 }
 
