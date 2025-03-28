@@ -453,6 +453,30 @@ public class HackerRank {
         return answer;
 
     }
+    static int jumpingOnClouds(int[] c, int k) {
+        //thunderhead of cumulus
+        //should reach the start again
+        //c clouds = array,
+        //e energy = 100
+        //thundercloud is c[i] = 1
+        //jump of size k to cloud c[(i+k) % n ]
+        int n = c.length;
+        int energy = 100;
+        int currentCloud = 0;
+
+
+        do{
+            currentCloud = (currentCloud + k) % n;
+            energy--;
+
+            if(c[currentCloud] == 1){
+                energy -= 2;
+            }
+
+        }while(currentCloud != 0);
+        return energy;
+
+    }
 
 }
 
