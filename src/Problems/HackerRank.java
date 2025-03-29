@@ -477,6 +477,17 @@ public class HackerRank {
         return energy;
 
     }
+    public static List<Integer> permutationEquation(List<Integer> p) {
+        int length = p.size();
+        List<Integer> result = new ArrayList<>();
+
+        for(int x = 1; x <= length; x++){
+            int currentIndex = p.indexOf(x) + 1;
+            int answer = p.indexOf(currentIndex) + 1;
+            result.add(answer);
+        }
+        return result;
+    }
 
 }
 
