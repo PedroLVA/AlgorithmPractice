@@ -488,6 +488,28 @@ public class HackerRank {
         }
         return result;
     }
+    public static int findDigits(int n) {
+        // Write your code here
+        // it's a divisor if it can be perfectly divised
+        //check if the integer composing numbers can divide the integer evenly
+        //so I need to get all the individual numbers to make it work
+        String stringNumber = Integer.toString(n);
+        ArrayList<Character> arrayOfNumbers = new ArrayList<>();
+        int countDivisible = 0;
+        for(int i = 0; i < stringNumber.length(); i++){
+            arrayOfNumbers.add(stringNumber.charAt(i));
+        }
+        for(char num : arrayOfNumbers){
+            int singularNumber = Character.getNumericValue(num);
+            if(singularNumber == 0){
+                continue;
+            }
+            if(n % singularNumber == 0 ){
+                countDivisible++;
+            }
+        }
+        return countDivisible;
+    }
 
 }
 
