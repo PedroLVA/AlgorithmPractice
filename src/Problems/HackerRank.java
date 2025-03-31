@@ -503,6 +503,59 @@ public class HackerRank {
 
         return countDivisible;
     }
+    public static String appendAndDelete(String s, String t, int k) {
+        // Write your code here
+        // string s and t
+        // we need to perform: apen a lowercase english letter  delete the last character
+        //athayde 7
+        //ath 3
+        //7 - 3 = 4
+        //we need to perform exacly k operations.
+
+        int stringSLength = s.length();
+        int stringTLength = t.length();
+        int difference = Math.abs(stringSLength - stringTLength);
+
+        //temos que achar o subarray de character
+        //abcd
+        //abcdefg
+        //7
+        if(t.charAt(0) != s.charAt(0)){
+            if(stringSLength + stringTLength <= k){
+                return "Yes";
+            }
+            else{
+                return "No";
+            }
+        }
+        else{
+            //See where the two strings differ
+
+            if(difference == 0 && !s.equals(t)){
+                for(int i = 0; i < stringSLength; i++){
+                    if (s.charAt(stringSLength - 1 - i) != t.charAt(stringTLength - 1 - i)) {
+                        difference = i;
+                        break;
+                    }
+                }
+            }
+
+            if(difference <= k){
+                if(difference % 2 != 0 && k % 2 == 0){
+                    return "No";
+                }
+
+                return "Yes";
+            }
+            else{
+                return "No";
+
+            }
+        }
+
+
+
+    }
 
 }
 
