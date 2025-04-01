@@ -556,6 +556,26 @@ public class HackerRank {
 
 
     }
+    public static int squares(int a, int b) {
+        // Write your code here
+        //starting and ending that is a range
+        //inclusive of the endpoints
+        //determine the number of square integers in that range
+        //so we should know what makes a square integer
+        //A square integer is an integer which is the square of an integer, 1, 3, 9, 16, 25
+        //get all the numbers in that range that the square root is not broken
+        //16
+        //Okay, this approach takes too long, I need to learn how to optimize this
+        //So all perfect square numbers, when you put em into the sqrt function, if they don't have decimals
+        //they are square numbers
+        //So i can just make that conversion and see how many are in the range
+
+        int ceilingA = (int)Math.ceil(Math.sqrt(a));
+        int ceilingB = (int)Math.floor(Math.sqrt(b));
+        int result = ceilingB - ceilingA + 1;
+        return result;
+
+    }
 
 }
 
