@@ -576,6 +576,45 @@ public class HackerRank {
         return result;
 
     }
+    public static List<Integer> cutTheSticks(List<Integer> arr) {
+
+        int smallestStick = Collections.min(arr);
+        int countSticksCut = 0;
+        List<Integer> listOfStickCuts = new ArrayList<>();
+
+
+        while(!arr.isEmpty()){
+
+            smallestStick = Collections.min(arr);
+
+
+            //for to decrement the numbers
+            for (int j = 0; j < arr.size();) {
+
+                if(arr.get(j) <= smallestStick){
+                    arr.remove(j);
+                    countSticksCut++;
+                }
+                else{
+
+                    arr.set(j, arr.get(j) - smallestStick);  // Modify the current element
+                    j++;  // Only increment if we didn't remove an element
+                    countSticksCut++;
+                }
+
+
+            }
+
+            listOfStickCuts.add(countSticksCut);
+
+            countSticksCut = 0;
+
+        }
+
+
+
+        return listOfStickCuts;
+    }
 
 }
 
