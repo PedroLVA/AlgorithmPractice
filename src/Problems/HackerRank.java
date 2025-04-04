@@ -615,6 +615,34 @@ public class HackerRank {
 
         return listOfStickCuts;
     }
+    public static int libraryFine(int d1, int m1, int y1, int d2, int m2, int y2) {
+        // Write your code here
+        //we have the expected and actual return date
+        //calculate the fine if theres any
+        //if its after but in the same month 15xdays
+        //if its in the same year 500xnumMonths
+        //if it's after the year, the fine is 10.000
+
+        //first the no fee case
+        //the 2 values are the due date, and the 1 values are the date they were returned
+
+        //this is the day late case
+        if(d1 > d2 && m1 == m2 && y1 == y2){
+            return 15*(d1-d2);
+        }
+
+        //this is the month late case
+        else if(m1 > m2 && y1 == y2){
+            return 500 * (m1-m2);
+        }
+        else if(y1 > y2){
+            return 10000;
+        }
+        else{
+            return 0;
+        }
+
+    }
 
 }
 
