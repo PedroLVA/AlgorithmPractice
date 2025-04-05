@@ -669,6 +669,27 @@ public class HackerRank {
 
 
     }
+    public static int jumpingOnClouds(List<Integer> c) {
+        // Write your code here
+        // number equal to the number he is +1 or +2 so from c[1] he can jumto to c[2] or c[3]
+        //if c+2 aint thundercloud, so we c+2, otherwise we c+1
+        int countJumps =0;
+        int i = 0;
+        while(i < c.size()-1){
+
+            if(i + 2 < c.size() && c.get(i+2) == 0){
+                i +=2;
+            }
+            else{
+                i+=1;
+            }
+            countJumps++;
+
+        }
+
+        return countJumps;
+
+    }
 
 }
 
