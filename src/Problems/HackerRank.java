@@ -643,6 +643,32 @@ public class HackerRank {
         }
 
     }
+    public static long repeatedString(String s, long n) {
+        long countA = 0;
+        //optimized solution
+        long howManyTimesSFitsInN = n/s.length();
+        long remainder = n%s.length();
+        int countAInRemainder = 0;
+
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == 'a'){
+                countA++;
+            }
+        }
+
+        if(remainder != 0){
+            for(int i = 0; i < remainder; i++){
+                if(s.charAt(i) == 'a'){
+                    countAInRemainder++;
+                }
+            }
+
+        }
+
+        return (countA*howManyTimesSFitsInN) + countAInRemainder;
+
+
+    }
 
 }
 
