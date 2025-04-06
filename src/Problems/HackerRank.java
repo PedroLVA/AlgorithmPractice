@@ -690,6 +690,25 @@ public class HackerRank {
         return countJumps;
 
     }
+    public static int equalizeArray(List<Integer> arr) {
+        // Write your code here
+        //so we basically count the number with biggest ocorrence, and delete the rest
+        //
+        HashMap<Integer, Integer> numFrequency = new HashMap<>();
+        int maxFrequency = 1;
+        //Aqui a gente pega a frequencia
+
+        for(int num : arr){
+
+            numFrequency.put(num, numFrequency.getOrDefault(num, 0) + 1);
+            maxFrequency = Math.max(maxFrequency, numFrequency.get(num));
+        }
+
+        return arr.size() - maxFrequency;
+
+
+
+    }
 
 }
 
