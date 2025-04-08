@@ -709,6 +709,52 @@ public class HackerRank {
 
 
     }
+    public static List<Integer> acmTeam(List<String> topic) {
+        // Write your code here
+        //O maior numero possivel de topicos por time
+        //O quanto desses times possui o maior score possvel
+        //Pegar os charts complementares da string e verificar todas as outras strings
+        //Seria n2
+        int countOfTopics = 0;
+        int maxTopics = 0;
+        int countOfMaxTopics = 0;
+        List<Integer> countOfTeamTopics = new ArrayList<>();
+
+        for(int i = 0; i < topic.size(); i++ ){
+
+            String targetString = topic.get(i);
+
+            for(int j = i+1; j < topic.size(); j++){
+                countOfTopics = 0;
+                String compareString = topic.get(j);
+
+                for(int c = 0; c < targetString.length(); c++){
+                    if(targetString.charAt(c) == '1' || compareString.charAt(c) == '1'){
+                        countOfTopics++;
+                    }
+
+                }
+                countOfTeamTopics.add(countOfTopics);
+                maxTopics = Math.max(maxTopics, countOfTopics);
+
+            }
+        }
+
+
+        for(int num : countOfTeamTopics){
+            if(num == maxTopics){
+                countOfMaxTopics++;
+            }
+        }
+
+        System.out.println(countOfTeamTopics);
+        List<Integer> answer = new ArrayList<>();
+        answer.add(maxTopics);
+        answer.add(countOfMaxTopics);
+
+        return answer;
+
+    }
 
 }
 
