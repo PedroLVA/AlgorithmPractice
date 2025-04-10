@@ -776,6 +776,23 @@ public class HackerRank {
         return minimumDistances;
 
     }
+    public static int beautifulTriplets(int d, List<Integer> arr) {
+        // Write your code here
+        //moving window
+        // i < j < k
+        int numOfBeautifulTriples = 0;
+        for(int i = 0; i < arr.size(); i++){
+            int num = arr.get(i);
+            if(arr.contains(num + d) && arr.contains(num+(2*d))){
+                numOfBeautifulTriples++;
+            }
+
+        }
+
+        return numOfBeautifulTriples;
+
+    }
+
 
 }
 
