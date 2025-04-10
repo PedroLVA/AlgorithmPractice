@@ -425,7 +425,6 @@ public class HackerRank {
 
 
     }
-
     public static int saveThePrisoner(int n, int m, int s) {
         int position = ((s - 1) + (m - 1)) % n + 1;
         return position;
@@ -753,6 +752,28 @@ public class HackerRank {
         answer.add(countOfMaxTopics);
 
         return answer;
+
+    }
+    public static int minimumDistances(List<Integer> a) {
+        boolean matchElements = false;
+        int minimumDistances = a.size() - 1;
+
+        for(int i = 0; i < a.size(); i++){
+            for(int j = i + 1; j < a.size(); j++){
+                if(a.get(i) == a.get(j)){
+                    minimumDistances = Math.min(minimumDistances, j - i);
+                    if(minimumDistances == 1){
+                        return 1;
+                    }
+
+                    matchElements = true;
+                }
+            }
+        }
+        if(!matchElements){
+            return -1;
+        }
+        return minimumDistances;
 
     }
 
