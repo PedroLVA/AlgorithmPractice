@@ -760,7 +760,7 @@ public class HackerRank {
 
         for(int i = 0; i < a.size(); i++){
             for(int j = i + 1; j < a.size(); j++){
-                if(a.get(i) == a.get(j)){
+                if(a.get(i).equals(a.get(j))){
                     minimumDistances = Math.min(minimumDistances, j - i);
                     if(minimumDistances == 1){
                         return 1;
