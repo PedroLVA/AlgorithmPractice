@@ -792,6 +792,37 @@ public class HackerRank {
         return numOfBeautifulTriples;
 
     }
+    public static int gemstones(List<String> arr) {
+        int countGemstones = 0;
+        HashMap<Character, Integer> frequencyHashmap = new HashMap<>();
+        //a:arr.lenght
+
+
+        for (String currentString : arr) {
+            HashSet<Character> uniqueChars = new HashSet<>();
+
+            for (int j = 0; j < currentString.length(); j++) {
+                char currentChar = currentString.charAt(j);
+                uniqueChars.add(currentChar);
+            }
+
+            for (char c : uniqueChars) {
+                frequencyHashmap.put(c, frequencyHashmap.getOrDefault(c, 0) + 1);
+            }
+        }
+
+
+        int totalRocks = arr.size();
+
+
+        for(char key : frequencyHashmap.keySet()) {
+            if(frequencyHashmap.get(key) == totalRocks) {
+                countGemstones++;
+            }
+        }
+
+        return countGemstones;
+    }
 
 
 }
