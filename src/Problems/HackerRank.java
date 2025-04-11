@@ -823,6 +823,47 @@ public class HackerRank {
 
         return countGemstones;
     }
+    public static void kaprekarNumbers(int p, int q) {
+        // Write your code here
+        //square, get the two integers and sum = number
+        //positive integers, p<q
+        //A lot of edge cases
+        boolean isThereNumber = false;
+        for(int i = p; i <= q; i++){
+
+            String currentNumber = Integer.toString(i);
+            int d = currentNumber.length(); //10 - 2
+
+            long numberSquared = (long)Math.pow(i, 2);
+
+            String numberSquaredString = Long.toString(numberSquared);
+
+            int powerLength = numberSquaredString.length();
+
+            String r = numberSquaredString.substring(Math.max(0, powerLength-d), powerLength);
+            String l = powerLength > d ? numberSquaredString.substring(0, powerLength-d) : "0";
+
+
+            int intR = Integer.parseInt(r);
+            int intL = l.isEmpty() ? 0 : Integer.parseInt(l);
+
+
+
+            int result = intR+intL;
+
+            if(result == i){
+                isThereNumber = true;
+                System.out.print(i + " ");
+            }
+
+
+        }
+
+        if(!isThereNumber){
+            System.out.println("INVALID RANGE");
+        }
+
+    }
 
 
 }
