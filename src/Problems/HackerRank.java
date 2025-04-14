@@ -864,6 +864,26 @@ public class HackerRank {
         }
 
     }
+    public static int chocolateFeast(int n, int c, int m) {
+        // Write your code here
+        //n dinheiro
+        //c preco
+        //m embalagem
+        int chocolates = n/c;
+        int wrappers = chocolates;
+
+        while(wrappers >= m){
+            int newChocolates = wrappers/m;
+
+            chocolates+=newChocolates;
+
+            wrappers = (wrappers%m) + newChocolates;
+        }
+
+        return chocolates;
+
+    }
+}
 
 
 }
