@@ -1,5 +1,6 @@
 package Problems;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class HackerRank {
@@ -883,10 +884,20 @@ public class HackerRank {
         return chocolates;
 
     }
+    public static void extraLongFactorials(int n) {
+
+        BigInteger result = BigInteger.valueOf(n);
+
+        for (int i = n-1; i >= 1; i--) {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+
+        System.out.println(result);
+
+    }
 }
 
 
-}
 
 
 
