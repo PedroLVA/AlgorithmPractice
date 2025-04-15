@@ -919,6 +919,40 @@ public class HackerRank {
         return result;
 
     }
+    public static int workbook(int n, int k, List<Integer> arr) {
+        // Write your code here
+        //special problem: index within a chapter is the same as the page number it's located
+        //n chapters
+        //each chapter has a array of problems
+        //Each page holds k problems, only a chapter last page has fewer than k
+        //IF the problem index, within a chapter, within a page is equal to the page number
+        //3 - 4 = 3
+        int chapters = n;
+        int problemPerPage = k;
+        int pageNumber = 1;
+        int countSpecial = 0;
+
+        for(int i = 0; i < chapters; i++){
+            //usando esse index eu consigo acessar o tanto de problemas por chapters
+            //vai me retornar 4, preciso contar quantas paginas isso vai usar
+            int currentProblems =  arr.get(i);
+            for(int j = 1; j <= currentProblems; j++){
+                if(j == pageNumber){
+                    countSpecial++;
+                }
+
+                if(j % problemPerPage == 0 && j != currentProblems){
+                    pageNumber++;
+
+                }
+
+            }
+            pageNumber++;
+        }
+        return countSpecial;
+
+
+    }
 
 }
 
