@@ -895,6 +895,31 @@ public class HackerRank {
         System.out.println(result);
 
     }
+    public static List<Integer> serviceLane(int n, List<List<Integer>> cases, List<Integer> width) {
+        // Write your code here
+        List<Integer> result = new ArrayList<>();
+        int minValue = 0;
+        for(int i = 0; i < cases.size(); i++){
+            //we are inside the individual cases
+
+            //this will get me the ranges, sice it's always two
+            int startRange = cases.get(i).get(0);
+            int finalRange = cases.get(i).get(1);
+
+            //those are the indexes
+            minValue = Integer.MAX_VALUE;
+            for(int k = startRange; k <= finalRange; k++){
+
+                minValue = Math.min(minValue, width.get(k));
+            }
+            result.add(minValue);
+
+
+        }
+        return result;
+
+    }
+
 }
 
 
