@@ -953,6 +953,48 @@ public class HackerRank {
 
 
     }
+    public static String fairRations(List<Integer> B) {
+        // Write your code here
+        //first transform it in a binary array
+        int countLoaf = 0;
+        List<Integer> binary = new ArrayList<>();
+        for(int num : B){
+            int x = ((num % 2) == 0) ? 1 : 0;
+            binary.add(x);
+        }
+        //if 0
+        for(int i = binary.size()-1; i >=0;){
+            if(i == 0){
+                if(binary.get(i) != binary.get(i+1)){
+                    return "NO";
+                }
+                else{
+                    return Integer.toString(countLoaf);
+                }
+            }
+            else{
+                //if not in the last index
+                if(binary.get(i) == 0){
+                    if(binary.get(i-1) == 0){
+                        binary.set(i, 1);
+                        binary.set(i-1, 1);
+                    }
+                    else{
+                        binary.set(i, 1);
+                        binary.set(i-1, 0);
+                    }
+                    countLoaf += 2;
+                    i--;
+                }
+                else{
+                    i--;
+                }
+            }
+
+        }
+        return Integer.toString(countLoaf);
+
+    }
 
 }
 
