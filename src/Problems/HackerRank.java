@@ -1004,6 +1004,19 @@ public class HackerRank {
         System.out.println(int1);
         System.out.println(int2);
         System.out.println(int3);
+        //
+
+        Integer myInteger = scanner.nextInt();
+        double myDouble = scanner.nextDouble();
+        scanner.nextLine();
+        String myString = scanner.nextLine();
+
+        scanner.close();
+
+        System.out.println("String: " + myString);
+        System.out.println("Double: " + myDouble);
+        System.out.println("Int: " + myInteger);
+
     }
 
 
