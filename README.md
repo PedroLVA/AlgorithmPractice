@@ -1,6 +1,6 @@
 # HackerRank Solutions in Java
 
-Este repositório contém soluções para exercícios do HackerRank implementadas em Java. O objetivo é praticar e aprimorar habilidades de programação, lógica e resolução de problemas.
+Este repositório contém soluções para exercícios do HackerRank implementadas em Java. O objetivo é praticar e aprimorar habilidades de programação, lógica, estrutura de dados e resolução de problemas.
 
 ## Estrutura do Repositório
 
