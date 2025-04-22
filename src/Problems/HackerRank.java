@@ -1028,6 +1028,27 @@ public class HackerRank {
         return reversedList;
 
     }
+    public static List<String> bigSorting(List<String> unsorted) {
+
+        List<String> sorted = new ArrayList<>(unsorted);
+
+
+        Collections.sort(sorted, (a, b) -> {
+            //100
+            //102
+            if (a.length() != b.length()) {
+                return a.length() - b.length();
+            }
+            //100
+            //102
+            //igual
+            //igual
+            //
+            return a.compareTo(b);
+        });
+
+        return sorted;
+    }
 
 
 
