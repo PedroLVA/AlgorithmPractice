@@ -38,15 +38,20 @@ public class LeetCode {
         }
 
         for (int num : hashSet) {
-            int currentNum = num;
-            int count = 1;
 
-            while (hashSet.contains(currentNum + 1)) {
-                currentNum++;
-                count++;
+            if(!hashSet.contains(num-1)){
+
+                int currentNum = num;
+                int count = 1;
+
+                while (hashSet.contains(currentNum + 1)) {
+                    currentNum++;
+                    count++;
+                }
+
+                maxCount = Math.max(count, maxCount);
             }
 
-            maxCount = Math.max(count, maxCount);
         }
         return maxCount;
 
