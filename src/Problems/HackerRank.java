@@ -1049,6 +1049,19 @@ public class HackerRank {
 
         return sorted;
     }
+    public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+
+        List<Integer> result = new ArrayList<>(arr.size());
+
+        for(int i = d; i < arr.size(); i++){
+            result.add(arr.get(i));
+        }
+        for(int j = 0; j < d; j++){
+            result.add(arr.get(j));
+        }
+
+        return result;
+    }
 
 
 
