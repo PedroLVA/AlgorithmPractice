@@ -86,4 +86,61 @@ public class LeetCode {
         return false;
 
     }
+    public boolean hasCycleFloyd(ListNode head) {
+        // Edge case: empty list or list with only one node
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        // Initialize slow and fast pointers
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // Move slow one step and fast two steps at a time
+        // If there's a cycle, they will eventually meet
+        while (fast != null && fast.next != null) {
+           slow = slow.next;
+           fast = fast.next.next;
+
+           if(fast == slow){
+               return true;
+           }
+        }
+
+        // If fast reaches the end (null), there's no cycle
+        return false;
+    }
+    public int missingNumber(int[] nums) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (int num : nums) {
+            hashSet.add(num);
+        }
+
+
+        for (int i = 0; i <= nums.length; i++) {
+            if (!hashSet.contains(i)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+    public int missingNumberMath(int[] nums) {
+        int length = nums.length;
+        int sum = 0;
+        int actualSum = 0;
+
+        for(int i = 0; i < length; i++){
+            sum += i;
+        }
+
+        for(int num : nums){
+            actualSum += num;
+        }
+
+        return sum - actualSum;
+
+    }
+
+
 }
