@@ -1,17 +1,13 @@
 package Problems;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.*;
 
 class ListNode {
-      int val;
+    int val;
       ListNode next;
-      ListNode(int x) {
-          val = x;
-          next = null;
-      }
+      ListNode() {}
+      ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
   }
 
 public class LeetCode {
@@ -139,6 +135,71 @@ public class LeetCode {
         }
 
         return sum - actualSum;
+
+    }
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        List<ListNode> nodes = new ArrayList<>();
+
+        ListNode pointer = list1;
+        while (pointer != null) {
+            nodes.add(pointer);
+            pointer = pointer.next;
+        }
+
+        pointer = list2;
+        while (pointer != null) {
+            nodes.add(pointer);
+            pointer = pointer.next;
+        }
+
+        if (nodes.isEmpty()) {
+            return null;
+        }
+
+        Collections.sort(nodes, (a, b) -> a.val - b.val);
+
+        ListNode head = nodes.get(0);
+        ListNode current = head;
+        for (int i = 1; i < nodes.size(); i++) {
+            current.next = nodes.get(i);
+            current = current.next;
+        }
+        current.next = null; // Important: Terminate the list
+
+        return head;
+    }
+    public ListNode mergeTwoListsGoodApproach(ListNode list1, ListNode list2) {
+
+        //dummy age como um ponto de partida, como ele e tail são a mesma referencia, dummy.next é o primeiro tail.next
+        //o que significa que conseguimos acessar o head mesmo depois de percorrer a lista toda
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+
+        while(list1 != null && list2 != null){
+
+            if(list1.val <= list2.val){
+                tail.next = list1;
+                list1 = list1.next;
+            }
+            else{
+                tail.next = list2;
+                list2 = list2.next;
+            }
+
+            tail = tail.next;
+        }
+
+        //aqui uma das listas vai estar vazia, talvez, ai e so colocar no final pois ja esta sorted
+        if(list1 != null){
+            tail.next = list1;
+        }
+        else{
+            tail.next = list2;
+        }
+
+        //retorna a head
+        return dummy.next;
 
     }
 
