@@ -202,6 +202,44 @@ public class LeetCode {
         return dummy.next;
 
     }
+    public static boolean isValid(String s) {
+        //if its not even, its false
+        Stack<Character> stack = new Stack<>();
+
+        HashSet<Character> openingCharacters = new HashSet<>();
+        openingCharacters.add('{');
+        openingCharacters.add('(');
+        openingCharacters.add('[');
+
+        HashMap<Character, Character> pairHashmap = new HashMap<>();
+        pairHashmap.put(']', '[');
+        pairHashmap.put(')', '(');
+        pairHashmap.put('}', '{');
+
+        if(s.length() % 2 !=0){
+            return false;
+        }
+
+        for(Character bracket : s.toCharArray()){
+
+        if(openingCharacters.contains(bracket)){
+            stack.add(bracket);
+        }
+        else{
+            if(stack.isEmpty()){
+                return false;
+            }
+
+            if(stack.peek() == pairHashmap.get(bracket)){
+                stack.pop();
+            }else{
+                return false;
+            }
+        }
+
+        }
+        return stack.isEmpty();
+    }
 
 
 }
