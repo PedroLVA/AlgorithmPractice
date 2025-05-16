@@ -10,6 +10,8 @@ class ListNode {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
   }
 
+
+
 public class LeetCode {
 
     public static int longestConsecutive(int[] nums) {
@@ -260,6 +262,24 @@ public class LeetCode {
         }
 
         return dp[n];
+    }
+    public ListNode reverseList(ListNode head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode prev = null;
+
+        while (head != null) {
+            ListNode nextNode = head.next;
+            head.next = prev;
+            prev = head;
+            head = nextNode;
+        }
+
+// prev is the new head (what was the last node)
+        return prev;
     }
 
 }
